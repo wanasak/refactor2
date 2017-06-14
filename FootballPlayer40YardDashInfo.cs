@@ -13,17 +13,12 @@ namespace refractor2_demo
         }
         public void PrintPlayerInfo()
         {
-            double avg40YdTime = 0.0;
+            PrintTitles();
+            PrintPlayersWith40Avg();
+        }
 
-            Console.WriteLine("Name \t\t Avg 40 Time");
-
-            for (int i = 0; i < 30; i++)
-            {
-                Console.Write("_");
-            }
-
-            Console.WriteLine();
-
+        private void PrintPlayersWith40Avg()
+        {
             foreach (var player in _players)
             {
                 Console.Write(player.GetName());
@@ -35,11 +30,27 @@ namespace refractor2_demo
                     total40YdDashTimes += fourtyYardDashTime;
                 }
 
-                avg40YdTime = total40YdDashTimes / player.GetFourtyYardDashTimes().Length;
+                double avg40YdTime = total40YdDashTimes / player.GetFourtyYardDashTimes().Length;
 
                 Console.Write("\t {0:N2}", avg40YdTime);
                 Console.WriteLine();
             }
+        }
+
+        private static void PrintTitles()
+        {
+            Console.WriteLine("Name \t\t Avg 40 Time");
+            PrintCharMultipleTimes('-', 30);
+        }
+
+        private static void PrintCharMultipleTimes(char charToPrint, int howManyTimes)
+        {
+            for (int i = 0; i < howManyTimes; i++)
+            {
+                Console.Write(charToPrint);
+            }
+
+            Console.WriteLine();
         }
     }
 }
