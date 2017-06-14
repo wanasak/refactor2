@@ -1,0 +1,2 @@
+# Refractoring
+- Extract method
