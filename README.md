@@ -1,4 +1,4 @@
-# Refractoring
+# Refactoring
 - Extract method
 
 ### Replace a temp with a query
